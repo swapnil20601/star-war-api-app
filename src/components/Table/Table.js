@@ -11,24 +11,24 @@ const Table = props => {
         <td>{person.birth_year}</td>
         <td>{person.height} cm</td>
         <td>{person.mass} lbs</td>
+        <td>{person.homeworld}</td>
       </tr>
     );
   });
 
   return (
     <MDBTable striped hover bordered responsiveSm>
-      <MDBTableHead color='#616161 grey darken-2' textWhite>
+      <MDBTableHead color="#616161 grey darken-2" textWhite>
         <tr>
           <th>#</th>
           <th>NAME</th>
           <th>BIRTH YEAR</th>
           <th>HEIGHT</th>
           <th>WEIGHT</th>
+          <th>PLANET</th>
         </tr>
       </MDBTableHead>
-      <MDBTableBody>
-        {body}
-      </MDBTableBody>
+      <MDBTableBody>{body}</MDBTableBody>
     </MDBTable>
   );
 };

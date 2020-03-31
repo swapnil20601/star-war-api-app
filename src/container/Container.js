@@ -4,8 +4,12 @@ import axios from "axios";
 
 class Container extends Component {
   state = {
+    name: "",
+    height: "",
+    mass: "",
+    birth_year: "",
+    homeworld: "",
     people: [],
-    homeWorld: [],
     isLoading: true
   };
 
@@ -18,16 +22,48 @@ class Container extends Component {
         reject
       );
     }).then(response => {
-    console.log(response);
-      this.setState({ people: response, isLoading: false });
+      const updatedPeople = [...this.state.people];
+
+      for (const object of response) {
+        let resName = object.name;
+        let resHeight = object.height;
+        let resMass = object.mass;
+        let resBirth_year = object.birth_year;
+        let resHomeWorld = this.fetchHomeWorld(object.homeworld).then(home => {
+          //console.log(home);
+          return home;
+        });
+
+        updatedPeople.push({
+          name: resName,
+          height: resHeight,
+          mass: resMass,
+          birth_year: resBirth_year,
+          homeplanet: resHomeWorld
+        });
+      }
+      console.log(updatedPeople);
+      this.setState({ people: updatedPeople, isLoading: false });
     });
   }
 
-  fetchStarWarCharacterDetails = (url, people, resolve, reject) => {
+  fetchHomeWorld = async url => {
+    return await axios
+      .get(url)
+      .then(home => {
+        //console.log('home ', home.data.name)
+        return home.data.name;
+      })
+      .catch(error => {
+        console.log("Could not fetch Home world api");
+      });
+  };
+
+  fetchStarWarCharacterDetails = (url, data, resolve, reject) => {
     axios
       .get(url)
       .then(response => {
-        const fetchedCharacters = people.concat(response.data.results);
+        const fetchedCharacters = data.concat(response.data.results);
         if (response.data.next !== null) {
           this.fetchStarWarCharacterDetails(
             response.data.next,
