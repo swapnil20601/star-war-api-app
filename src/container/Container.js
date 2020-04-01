@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { MDBBox } from "mdbreact";
 import Table from "../components/Table/Table";
+import SearchField from '../components/SearchField/SearchField';
 import axios from "axios";
+import classes from "./Container.module.css";
 
 class Container extends Component {
   state = {
@@ -10,6 +13,7 @@ class Container extends Component {
     birth_year: "",
     homeworld: "",
     people: [],
+    searchStarWar: "",
     isLoading: true
   };
 
@@ -25,6 +29,7 @@ class Container extends Component {
       const updatedPeople = [...this.state.people];
 
       for (const object of response) {
+        let serialNum = response.indexOf(object) + 1;
         let resName = object.name;
         let resHeight = object.height;
         let resMass = object.mass;
@@ -35,11 +40,12 @@ class Container extends Component {
         });
 
         updatedPeople.push({
+          number: serialNum,
           name: resName,
           height: resHeight,
           mass: resMass,
-          birth_year: resBirth_year,
-          homeplanet: resHomeWorld
+          birthYear: resBirth_year
+          //homePlanet: resHomeWorld
         });
       }
       console.log(updatedPeople);
@@ -81,12 +87,32 @@ class Container extends Component {
       });
   };
 
+  onChangeHandler = (event) => {
+    this.setState({searchStarWar: event.target.value});
+  }
+
+
   render() {
-    let displayData = <p>Loading...</p>;
+    let filteredStarWars = this.state.people.filter(starWar => {
+      return starWar.name.toLowerCase().includes(this.state.searchStarWar.toLowerCase())
+    })
+
+    let displayData = (
+      <p className={classes.Spinner}>
+        Loading...{" "}
+        <span className="spinner-border spinner-border-sm" role="status"></span>
+      </p>
+    );
+
     if (!this.state.isLoading) {
       displayData = (
         <>
-          <Table body={this.state.people} />
+          <MDBBox tag="section" display="flex" justifyContent="center">
+            <SearchField change={this.onChangeHandler}/>
+          </MDBBox>
+          <MDBBox tag="section">
+            <Table body={filteredStarWars} />
+          </MDBBox>
         </>
       );
     }

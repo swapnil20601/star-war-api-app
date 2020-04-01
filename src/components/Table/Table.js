@@ -1,35 +1,58 @@
+import { MDBDataTable } from "mdbreact";
 import React from "react";
-import { MDBTable, MDBTableBody, MDBTableHead } from "mdbreact";
-import uuid from "react-uuid";
+import classes from "./Table.module.css";
 
 const Table = props => {
-  const body = props.body.map((person, index) => {
-    return (
-      <tr key={uuid()}>
-        <td>{index + 1}</td>
-        <td>{person.name}</td>
-        <td>{person.birth_year}</td>
-        <td>{person.height} cm</td>
-        <td>{person.mass} lbs</td>
-        <td>{person.homeworld}</td>
-      </tr>
-    );
-  });
+  const data = {
+    columns: [
+      {
+        label: "Sr.No.",
+        field: "number",
+        width: 20
+      },
+      {
+        label: "NAME",
+        field: "name",
+        width: 200
+      },
+      {
+        label: "HEIGHT(cm)",
+        field: "height",
+        width: 70
+      },
+      {
+        label: "WEIGHT(lbs)",
+        field: "mass",
+        width: 70
+      },
+      {
+        label: "BIRTH YEAR",
+        field: "birthYear",
+        width: 100
+      },
+      {
+        label: "PLANET",
+        field: "homePlanet",
+        width: 120
+      }
+    ],
+    rows: props.body
+  };
 
   return (
-    <MDBTable striped hover bordered responsiveSm>
-      <MDBTableHead color="#616161 grey darken-2" textWhite>
-        <tr>
-          <th>#</th>
-          <th>NAME</th>
-          <th>BIRTH YEAR</th>
-          <th>HEIGHT</th>
-          <th>WEIGHT</th>
-          <th>PLANET</th>
-        </tr>
-      </MDBTableHead>
-      <MDBTableBody>{body}</MDBTableBody>
-    </MDBTable>
+    <MDBDataTable
+      className={classes.MyTable}
+      maxHeight="130px"
+      striped
+      hover
+      responsiveSm
+      noBottomColumns
+      order={["number", "asc"]}
+      theadTextWhite
+      theadColor="#616161 grey darken-2"
+      searching={false}
+      data={data}
+    ></MDBDataTable>
   );
 };
 
