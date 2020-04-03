@@ -5,3 +5,11 @@
     margin-top: 20px;
     padding-top: 20px;
 }
+
+.Error {
+    text-align: center;
+    color: red;
+    font-size: xx-large;
+    font-weight: bold;
+    padding-top: 60px;
+}

@@ -6,6 +6,9 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://swapi.co/api';
 
 ReactDOM.render(
   <React.StrictMode>

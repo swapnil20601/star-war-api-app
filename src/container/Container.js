@@ -14,18 +14,20 @@ class Container extends Component {
     homeworld: "",
     people: [],
     searchStarWar: "",
-    isLoading: true
+    isLoading: true,
+    error: false,
+    errorMessage: ''
   };
 
   componentDidMount() {
     new Promise((resolve, reject) => {
       this.fetchStarWarCharacterDetails(
-        "https://swapi.co/api/people",
+        "/people",
         [],
         resolve,
         reject
       );
-    }).then(response => {
+    }).then(async response => {
       const updatedPeople = [...this.state.people];
 
       for (const object of response) {
@@ -34,34 +36,31 @@ class Container extends Component {
         let resHeight = object.height;
         let resMass = object.mass;
         let resBirth_year = object.birth_year;
-        let resHomeWorld = this.fetchHomeWorld(object.homeworld).then(home => {
-          //console.log(home);
-          return home;
-        });
+        let resHomeWorld = await this.fetchHomeWorld(object.homeworld);
 
         updatedPeople.push({
           number: serialNum,
           name: resName,
           height: resHeight,
           mass: resMass,
-          birthYear: resBirth_year
-          //homePlanet: resHomeWorld
+          birthYear: resBirth_year,
+          homePlanet: resHomeWorld
         });
       }
       console.log(updatedPeople);
       this.setState({ people: updatedPeople, isLoading: false });
-    });
+    })
   }
 
   fetchHomeWorld = async url => {
     return await axios
       .get(url)
       .then(home => {
-        //console.log('home ', home.data.name)
         return home.data.name;
       })
       .catch(error => {
-        console.log("Could not fetch Home world api");
+        this.setState({errorMessage: 'Could not fetch planets for star wars. Try again later.', error: true})
+       return Promise.reject(error);
       });
   };
 
@@ -82,15 +81,14 @@ class Container extends Component {
         }
       })
       .catch(error => {
-        console.log(error);
-        reject("Something wrong. Please refresh the page and try again.");
+        this.setState({errorMessage: 'Something went wrong while fetching Star Wars. Please refresh the page and try again.', error: true})
+        return Promise.reject(error);
       });
   };
 
   onChangeHandler = (event) => {
     this.setState({searchStarWar: event.target.value});
   }
-
 
   render() {
     let filteredStarWars = this.state.people.filter(starWar => {
@@ -104,7 +102,11 @@ class Container extends Component {
       </p>
     );
 
-    if (!this.state.isLoading) {
+    if(this.state.error) {
+    displayData = <p className={classes.Error}>{this.state.errorMessage}</p>
+    }
+
+    if (!this.state.isLoading && !this.state.error) {
       displayData = (
         <>
           <MDBBox tag="section" display="flex" justifyContent="center">
@@ -115,7 +117,7 @@ class Container extends Component {
           </MDBBox>
         </>
       );
-    }
+    } 
     return <div className="container">{displayData}</div>;
   }
 }
