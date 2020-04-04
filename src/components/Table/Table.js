@@ -7,33 +7,43 @@ const Table = props => {
     columns: [
       {
         label: "Sr.No.",
-        field: "number",
-        width: 20
+        field: "number"
       },
       {
         label: "NAME",
-        field: "name",
-        width: 200
+        field: "name"
       },
       {
         label: "HEIGHT(cm)",
-        field: "height",
-        width: 70
+        field: "height"
       },
       {
         label: "WEIGHT(lbs)",
-        field: "mass",
-        width: 70
+        field: "mass"
       },
       {
         label: "BIRTH YEAR",
-        field: "birthYear",
-        width: 100
+        field: "birthYear"
       },
       {
         label: "PLANET",
-        field: "homePlanet",
-        width: 120
+        field: "homePlanet"
+      },
+      {
+        label: "SPECIES",
+        field: "species"
+      },
+      {
+        label: "CLASSIFICATION",
+        field: "classification"
+      },
+      {
+        label: "LANGUAGE",
+        field: "language"
+      },
+      {
+        label: "STARSHIPS",
+        field: "starShips"
       }
     ],
     rows: props.body
@@ -42,12 +52,15 @@ const Table = props => {
   return (
     <MDBDataTable
       className={classes.MyTable}
-      maxHeight="130px"
+      autoWidth
+      maxHeight="100px"
       striped
       hover
       responsiveSm
       noBottomColumns
       order={["number", "asc"]}
+      entriesLabel="Show Star Wars"
+      infoLabel={["Showing", "to", "of", "Star Wars"]}
       theadTextWhite
       theadColor="#616161 grey darken-2"
       searching={false}
