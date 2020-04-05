@@ -33,7 +33,6 @@ class Container extends Component {
         let resHomeWorld = await this.fetchHomeWorld(starWar.homeworld);
         let resSpecies = await this.fetchSpecies(starWar.species);
         let resStarShips = await this.fetchStarShips(starWar.starships);
-        //console.log(resStarShips);
 
         updatedPeople.push({
           number: serialNum,
@@ -159,7 +158,7 @@ class Container extends Component {
           <MDBBox tag="section" display="flex" justifyContent="center">
             <SearchField change={this.onChangeHandler} />
           </MDBBox>
-          <MDBBox tag="section">
+          <MDBBox tag="section" display="flex" justifyContent="center">
             <Table body={filteredStarWars} />
           </MDBBox>
         </>
