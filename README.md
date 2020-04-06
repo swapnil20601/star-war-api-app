@@ -36,7 +36,7 @@ Download [GitBash](https://git-scm.com/downloads) to run git commands.
 
 ### Deployment
 
-This application has been deployed to a container-based cloud platform **Heroku**.
+This application has been deployed to a container-based cloud platform **Heroku**.<br />
 [Click here](https://swapnil-star-war-api-app.herokuapp.com/) to checkout the app live. 
 
 ### Author
