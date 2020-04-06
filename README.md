@@ -30,8 +30,6 @@ Download [GitBash](https://git-scm.com/downloads) to run git commands.
 * **Material Design Bootstrap** - Web UI interface for creating Table Layout
 * **REST APIs with axios library** - An architectural style to communicate with the web services via HTTP requests.
 
-This application is built by using *React.js framework, CSS, Bootstrap 4 for styling, Material Design Bootstrap to create Table layout and most importantly REST API with axios library*.
-
 ### Screenshot of App
 
 <image src="src/images/screenshot.png">
