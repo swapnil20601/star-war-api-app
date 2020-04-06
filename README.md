@@ -37,7 +37,7 @@ Download [GitBash](https://git-scm.com/downloads){:target="_blank" rel="noopener
 ### Deployment
 
 This application has been deployed to a container-based cloud platform **Heroku**.<br />
-[Click here](https://swapnil-star-war-api-app.herokuapp.com/){:target="_blank" rel="noopener"} to checkout the app live. 
+[Click here](https://swapnil-star-war-api-app.herokuapp.com/){:target="_blank"} to checkout the app live. 
 
 ### Author
 
