@@ -23,7 +23,12 @@ Download [GitBash](https://git-scm.com/downloads) to run git commands.
 7) From the VS Code's menu, select `New Terminal` under *Terminal* Menu. This opens up a new terminal in VS Code window at the bottom.
 8) Run `npm start` to get the app up and running locally.
 
-### Tech-Stack
+### Built With
+
+* **React.js** - The JavaScript framework used.
+* **CSS & Bootstrap 4** - CSS and a CSS framework used for styling.
+* **Material Design Bootstrap** - Web UI interface for creating Table Layout
+* **REST APIs with axios library** - An architectural style to communicate with the web services via HTTP requests.
 
 This application is built by using *React.js framework, CSS, Bootstrap 4 for styling, Material Design Bootstrap to create Table layout and most importantly REST API with axios library*.
 
@@ -35,3 +40,7 @@ This application is built by using *React.js framework, CSS, Bootstrap 4 for sty
 
 This application has been deployed to a container-based cloud platform **Heroku**.
 [Click here](https://swapnil-star-war-api-app.herokuapp.com/) to checkout the app live. 
+
+## Author
+
+* **Swapnil Jadhav** - *Full-Stack Software Developer* - [Website](https://www.google.com/) | [LinkedIn](https://www.google.com/)
