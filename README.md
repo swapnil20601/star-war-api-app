@@ -16,7 +16,7 @@ Download [GitBash](https://git-scm.com/downloads) to run git commands.
 
 1) Create a folder named **star-war-api-app** on your local machine.
 2) Open GitBash and navigate to the location where you just created **star-war-api-app** folder
-3) Run command `r colorize("git init", "red")` in GitBash
+3) Run command ```diff - git init``` in GitBash
 4) Now run command `git pull https://github.com/swapnil20601/star-war-api-app.git`
 5) Open Visual Studio Code editor if you are using it and then Select `Open Folder` under File Menu
 6) Navigate to **star-war-api-app** folder and click on `Select folder` to open project in Visual Studio Code. 
