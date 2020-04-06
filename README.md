@@ -33,5 +33,5 @@ This application is built by using *React.js framework, CSS, Bootstrap 4 for sty
 
 ### Deployment
 
-This application has been deployed to a container-based cloud platform ```*Heroku*```.
+This application has been deployed to a container-based cloud platform **Heroku**.
 [Click here](https://swapnil-star-war-api-app.herokuapp.com/) to checkout the app live. 
