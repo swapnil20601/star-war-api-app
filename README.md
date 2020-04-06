@@ -1,7 +1,7 @@
 # STAR WARS API APP
 <br>
 
-*In web development, it’s critical that you work with a REST API (Application Programming Interface) and understand what it is. In this application I introduced myself to work with API’s.Star-Wars-Api app pulls the data from a free API [swapi.co](https://swapi.co/) to pull in datathat holds information about Star Wars characters. This data is then displayed to users of the application in the Tabular format once the app loads.
+*In web development, it’s critical that you work with a REST API (Application Programming Interface) and understand what it is. In this application I introduced myself to work with API’s. Star-Wars-Api app pulls the data from a free API [swapi.co](https://swapi.co/) to pull in datathat holds information about Star Wars characters. This data is then displayed to users of the application in the Tabular format once the app loads.
 This app is designed to get a taste of working with a RESTful API as well as to continue to go deeper into React*.
 
 <br>
@@ -15,9 +15,23 @@ Download [GitBash](https://git-scm.com/downloads) to run git commands.
 ### Getting Started
 
 1) Create a folder named **star-war-api-app** on your local machine.
-2) Open GitBash and navigate to the location where you just created **star-war-api-app** folder
-3) Run command ```git init``` in GitBash
-4) Now run command `git pull https://github.com/swapnil20601/star-war-api-app.git`
-5) Open Visual Studio Code editor if you are using it and then Select `Open Folder` under File Menu
-6) Navigate to **star-war-api-app** folder and click on `Select folder` to open project in Visual Studio Code. 
+2) Open GitBash and navigate to the location where you just created **star-war-api-app** folder.
+3) Run command ```git init``` in GitBash.
+4) Now run command `git pull https://github.com/swapnil20601/star-war-api-app.git`.
+5) Open Visual Studio Code editor if you are using it and then Select `Open Folder` under *File* Menu.
+6) Navigate to **star-war-api-app** folder and click on `Select folder` to open project in Visual Studio Code.
+7) From the VS Code's menu, select `New Terminal` under *Terminal* Menu. This opens up a new terminal in VS Code window at the bottom.
+8) Run `npm start` to get the app up and running locally.
 
+### Tech-Stack
+
+This application is built by using *React.js framework, CSS, Bootstrap 4 for styling, Material Design Bootstrap to create Table layout and most importantly REST API with axios library*.
+
+### Screenshot of App
+
+<image src="images/screenshot.png">
+
+### Deployment
+
+This application has been deployed to a container-based cloud platform `**Heroku**`.
+[Click here](https://swapnil-star-war-api-app.herokuapp.com/) to checkout the app live. 
