@@ -11,13 +11,13 @@ class Container extends Component {
     searchStarWar: "",
     isLoading: true,
     error: false,
-    errorMessage: ""
+    errorMessage: "",
   };
 
   componentDidMount() {
     new Promise((resolve, reject) => {
       this.fetchStarWarCharacterDetails("/people", [], resolve, reject);
-    }).then(async response => {
+    }).then(async (response) => {
       const updatedPeople = [...this.state.people];
 
       for (const starWar of response) {
@@ -49,56 +49,58 @@ class Container extends Component {
             resSpecies[0] && resSpecies[0].language !== "n/a"
               ? resSpecies[0].language
               : "unknown",
-          starShips: resStarShips.length > 0 ? resStarShips.join(', ') : 'Sorry! No Starship found'
+          starShips:
+            resStarShips.length > 0
+              ? resStarShips.join(", ")
+              : "Sorry! No Starship found",
         });
       }
-      console.log(updatedPeople);
       this.setState({ people: updatedPeople, isLoading: false });
     });
   }
 
-  fetchHomeWorld = async url => {
+  fetchHomeWorld = async (url) => {
     return await axios
       .get(url)
-      .then(home => {
+      .then((home) => {
         return home.data.name;
       })
-      .catch(error => {
+      .catch((error) => {
         this.setState({
           errorMessage:
             "Could not fetch Planets for Star Wars. Try again later.",
-          error: true
+          error: true,
         });
         return Promise.reject(error);
       });
   };
 
-  fetchSpecies = async speciesArray => {
+  fetchSpecies = async (speciesArray) => {
     try {
-      const species = speciesArray.map(speciesUrl => {
+      const species = speciesArray.map((speciesUrl) => {
         return axios.get(speciesUrl);
       });
-      return (await axios.all(species)).map(response => response.data);
+      return (await axios.all(species)).map((response) => response.data);
     } catch (error) {
       this.setState({
         errorMessage: "Could not fetch Species of Star Wars. Try again later.",
-        error: true
+        error: true,
       });
       return Promise.reject(error);
     }
   };
 
-  fetchStarShips = async starShipsArray => {
+  fetchStarShips = async (starShipsArray) => {
     try {
-      const starShips = starShipsArray.map(starShipUrl => {
+      const starShips = starShipsArray.map((starShipUrl) => {
         return axios.get(starShipUrl);
       });
-      return (await axios.all(starShips)).map(response => response.data.name);
+      return (await axios.all(starShips)).map((response) => response.data.name);
     } catch (error) {
       this.setState({
         errorMessage:
           "Could not fetch Starships for Star Wars. Refresh page and try again later.",
-        error: true
+        error: true,
       });
       return Promise.reject(error);
     }
@@ -107,7 +109,7 @@ class Container extends Component {
   fetchStarWarCharacterDetails = (url, data, resolve, reject) => {
     axios
       .get(url)
-      .then(response => {
+      .then((response) => {
         const fetchedCharacters = data.concat(response.data.results);
         if (response.data.next !== null) {
           this.fetchStarWarCharacterDetails(
@@ -120,22 +122,22 @@ class Container extends Component {
           resolve(fetchedCharacters);
         }
       })
-      .catch(error => {
+      .catch((error) => {
         this.setState({
           errorMessage:
             "Something went wrong while fetching Star Wars. Please refresh the page and try again.",
-          error: true
+          error: true,
         });
         return Promise.reject(error);
       });
   };
 
-  onChangeHandler = event => {
+  onChangeHandler = (event) => {
     this.setState({ searchStarWar: event.target.value });
   };
 
   render() {
-    let filteredStarWars = this.state.people.filter(starWar => {
+    let filteredStarWars = this.state.people.filter((starWar) => {
       return starWar.name
         .toLowerCase()
         .includes(this.state.searchStarWar.toLowerCase());

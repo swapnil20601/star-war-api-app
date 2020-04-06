@@ -2,51 +2,51 @@ import { MDBDataTable } from "mdbreact";
 import React from "react";
 import classes from "./Table.module.css";
 
-const Table = props => {
+const Table = (props) => {
   const data = {
     columns: [
       {
         label: "Sr.No.",
-        field: "number"
+        field: "number",
       },
       {
         label: "NAME",
-        field: "name"
+        field: "name",
       },
       {
         label: "HEIGHT(cm)",
-        field: "height"
+        field: "height",
       },
       {
         label: "WEIGHT(lbs)",
-        field: "mass"
+        field: "mass",
       },
       {
         label: "BIRTH YEAR",
-        field: "birthYear"
+        field: "birthYear",
       },
       {
         label: "PLANET",
-        field: "homePlanet"
+        field: "homePlanet",
       },
       {
         label: "SPECIES",
-        field: "species"
+        field: "species",
       },
       {
         label: "CLASSIFICATION",
-        field: "classification"
+        field: "classification",
       },
       {
         label: "LANGUAGE",
-        field: "language"
+        field: "language",
       },
       {
         label: "STARSHIPS",
-        field: "starShips"
-      }
+        field: "starShips",
+      },
     ],
-    rows: props.body
+    rows: props.body,
   };
 
   return (

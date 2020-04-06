@@ -1,15 +1,15 @@
 .Spinner {
-    text-align: center;
-    font-size: large;
-    font-weight: normal;
-    margin-top: 20px;
-    padding-top: 20px;
+  text-align: center;
+  font-size: large;
+  font-weight: normal;
+  margin-top: 20px;
+  padding-top: 20px;
 }
 
 .Error {
-    text-align: center;
-    color: red;
-    font-size: xx-large;
-    font-weight: bold;
-    padding-top: 60px;
+  text-align: center;
+  color: red;
+  font-size: xx-large;
+  font-weight: bold;
+  padding-top: 60px;
 }
