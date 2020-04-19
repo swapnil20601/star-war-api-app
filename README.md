@@ -22,7 +22,8 @@ Download [GitBash](https://git-scm.com/downloads) to run git commands.
 5. Open Visual Studio Code editor if you are using it and then Select `Open Folder` under _File_ Menu.
 6. Navigate to **star-war-api-app** folder and click on `Select folder` to open project in Visual Studio Code.
 7. From the VS Code's menu, select `New Terminal` under _Terminal_ Menu. This opens up a new terminal in VS Code window at the bottom.
-8. Run `npm start` to get the app up and running locally.
+8. Run `npm install` to install node_modules. It might take few minutes to install. Please be patient.
+9. Run `npm start` to get the app up and running locally.
 
 ### Built With
 
